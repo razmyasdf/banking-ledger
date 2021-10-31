@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  application:
+    name: LEDGER-SERVICE
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
@@ -12,3 +14,12 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

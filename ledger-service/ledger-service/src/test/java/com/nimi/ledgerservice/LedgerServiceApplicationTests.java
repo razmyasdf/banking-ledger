@@ -3,11 +3,9 @@ package com.nimi.ledgerservice;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class LedgerServiceApplicationTests {
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-	@Test
-	void contextLoads() {
-	}
+
+class LedgerServiceApplicationTests {
 
 }
