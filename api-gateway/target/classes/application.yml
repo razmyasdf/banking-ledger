@@ -1,0 +1,29 @@
+# server related configurations
+server:
+  port: 9090
+# application related configuration
+spring:
+  application:
+    name: API-GATEWAY
+# API-GATEWAY related configuration
+  cloud:
+    gateway:
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customer/**
+        - id: LEDGER-SERVICE
+          uri: lb://LEDGER-SERVICE
+          predicates:
+            - Path=/api/v1/ledger/**
+# eureka related configuration
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+

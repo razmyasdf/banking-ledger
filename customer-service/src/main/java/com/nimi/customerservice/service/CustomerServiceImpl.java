@@ -62,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public CustomerLedgerResponse fetchCustomerWithLedger(Long customerId) {
         Customer customer = customerRepository.findById(customerId).get();
-        ResponseEntity<Ledger[]> ledgers = restTemplate.getForEntity("http://localhost:8081/api/v1/ledger/customer/"+customerId,Ledger[].class);
+        ResponseEntity<Ledger[]> ledgers = restTemplate.getForEntity("http://LEDGER-SERVICE/api/v1/ledger/customer/"+customerId,Ledger[].class);
         CustomerLedgerResponse customerLedgerResponse = new CustomerLedgerResponse();
         customerLedgerResponse.setCustomer(customer);
         List<Ledger> ledgers1 = Arrays.asList(ledgers.getBody());
