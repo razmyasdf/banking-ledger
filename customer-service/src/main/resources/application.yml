@@ -1,8 +1,9 @@
+
 server:
   port: 8081
 spring:
   application:
-    name: LEDGER-SERVICE
+    name: CUSTOMER-SERVICE
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
