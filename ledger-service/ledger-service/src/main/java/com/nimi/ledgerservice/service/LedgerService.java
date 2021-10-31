@@ -13,5 +13,6 @@ public interface LedgerService {
     List<Ledger> findAllLedgers();
     Transection addDeposit(Ledger ledger, Transection transection);
     Transection addWithdrawal(Ledger ledger, Transection transection);
+    List<Ledger> findByCustomerId(Long customerId);
 
 }

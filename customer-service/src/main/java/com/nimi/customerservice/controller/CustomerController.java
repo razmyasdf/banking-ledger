@@ -1,6 +1,7 @@
 package com.nimi.customerservice.controller;
 
 import com.nimi.customerservice.domain.Customer;
+import com.nimi.customerservice.response.CustomerLedgerResponse;
 import com.nimi.customerservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -37,5 +38,10 @@ public class CustomerController {
     @PostMapping
     public Customer addCustomer(@RequestBody Customer customer){
         return customerService.saveCustomer(customer);
+    }
+
+    @GetMapping("/ledger/{customerId}")
+    public CustomerLedgerResponse getLedgerForCustomer(@PathVariable("customerId") Long customerId){
+        return customerService.fetchCustomerWithLedger(customerId);
     }
 }

@@ -36,6 +36,11 @@ public class Ledger implements Serializable {
         this.transections = transections;
     }
 
+    public Ledger(String name, Long customerId) {
+        this.name = name;
+        this.customerId = customerId;
+    }
+
     public void addTransection(Transection transection){
         if(!this.transections.contains(transection)){
             this.transections.add(transection);

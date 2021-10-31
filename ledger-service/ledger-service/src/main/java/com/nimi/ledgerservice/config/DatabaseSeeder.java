@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -44,9 +45,13 @@ public class DatabaseSeeder implements CommandLineRunner {
         ledger.addTransection(t2);
         repository.save(ledger);
 
-        LedgerOperationsService accountOperations = new LedgerOperationServiceImpl();
-        List<Transection> transectionByTypeForLedger = accountOperations.getTransectionByTypeForLedger(ledger, TransectionType.DEPOSIT);
 
-        transectionByTypeForLedger.stream().forEach(transection -> System.out.println(transection.getTransectionType()));
+        List<Ledger> ledgers = Arrays.asList(
+                new Ledger("Current Account",2L),
+                new Ledger("NRFC Account",2L),
+                new Ledger("Joint Account",2L)
+        );
+
+        repository.saveAll(ledgers);
     }
 }

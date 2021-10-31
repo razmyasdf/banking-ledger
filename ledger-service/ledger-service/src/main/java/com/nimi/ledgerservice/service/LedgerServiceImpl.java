@@ -41,6 +41,11 @@ public class LedgerServiceImpl implements LedgerService{
     }
 
     @Override
+    public List<Ledger> findByCustomerId(Long customerId) {
+        return ledgerRepository.findLedgerByCustomerId(customerId);
+    }
+
+    @Override
     public Transection addWithdrawal(Ledger ledger, Transection transection) {
         double currentBalance = ledgerOperationsService.getCurrentBalance(ledger);
         if(currentBalance>transection.getAmount()){
