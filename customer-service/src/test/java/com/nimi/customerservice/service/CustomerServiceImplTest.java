@@ -32,7 +32,7 @@ class CustomerServiceImplTest {
 
     @BeforeEach
     void setUp() {
-         customer = new Customer("test","test","001",10L);
+         customer = new Customer("test","test","001","test");
          autoCloseable = MockitoAnnotations.openMocks(this);
          customerService = new CustomerServiceImpl(repository);
     }
@@ -44,7 +44,7 @@ class CustomerServiceImplTest {
 
     @Test
     void saveCustomer() {
-        Customer customer = new Customer("firstName","lastName","001",10L);
+        Customer customer = new Customer("firstName","lastName","001","test");
         //when
         customerService.saveCustomer(customer);
         //then
@@ -57,7 +57,7 @@ class CustomerServiceImplTest {
     @Test
     void saveCustomerException() {
         //given
-        Customer customer = new Customer("firstName","lastName","001",10L);
+        Customer customer = new Customer("firstName","lastName","001","test");
         //when
         customerService.saveCustomer(customer);
         given(customerService.fetchCustomerByNic(customer.getNic())).willReturn(customer);

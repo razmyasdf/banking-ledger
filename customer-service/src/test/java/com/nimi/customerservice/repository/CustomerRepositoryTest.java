@@ -18,7 +18,7 @@ class CustomerRepositoryTest {
 
     @BeforeEach
     void setUp() {
-     customer = new Customer("testFirstName","testLastName","001",10L);
+     customer = new Customer("testFirstName","testLastName","001","test");
         customerRepository.save(customer);
     }
     @AfterEach
