@@ -2,6 +2,7 @@ package com.nimi.ledgerservice.service;
 
 import com.nimi.ledgerservice.domain.Ledger;
 import com.nimi.ledgerservice.domain.Transection;
+import com.nimi.ledgerservice.exception.LedgerNotFountException;
 import com.nimi.ledgerservice.exception.NotEnoughFundException;
 import com.nimi.ledgerservice.repository.LedgerRepository;
 import com.nimi.ledgerservice.repository.TransectionRepository;
@@ -35,7 +36,10 @@ public class LedgerServiceImpl implements LedgerService{
     }
 
     @Override
-    public Transection addDeposit(Ledger ledger, Transection transection) {
+    public Transection addDeposit(Long ledgerId, Transection transection) {
+        Ledger ledger = ledgerRepository.findById(ledgerId).get();
+        if(ledger==null)
+            throw new LedgerNotFountException("Ledger Not Fount");
         transection.setLedger(ledger);
         return transectionRepository.save(transection);
     }
@@ -46,7 +50,8 @@ public class LedgerServiceImpl implements LedgerService{
     }
 
     @Override
-    public Transection addWithdrawal(Ledger ledger, Transection transection) {
+    public Transection addWithdrawal(Long ledgerId, Transection transection) {
+        Ledger ledger = ledgerRepository.findById(ledgerId).get();
         double currentBalance = ledgerOperationsService.getCurrentBalance(ledger);
         if(currentBalance>transection.getAmount()){
             throw new NotEnoughFundException("Not Enough Fund Available");
@@ -54,5 +59,10 @@ public class LedgerServiceImpl implements LedgerService{
         transection.setLedger(ledger);
         return transectionRepository.save(transection);
 
+    }
+
+    @Override
+    public List<Transection> findTransectionForLedger(Long ledgerId) {
+        return transectionRepository.findByLedger(ledgerId);
     }
 }

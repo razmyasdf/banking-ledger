@@ -2,6 +2,7 @@ package com.nimi.ledgerservice.controller;
 
 import com.nimi.ledgerservice.domain.Bank;
 import com.nimi.ledgerservice.domain.Ledger;
+import com.nimi.ledgerservice.domain.Transection;
 import com.nimi.ledgerservice.repository.BankRepository;
 import com.nimi.ledgerservice.service.LedgerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,30 @@ public class LedgerController {
         return service.findByCustomerId(customerId);
     }
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Ledger> saveLedger(@RequestBody Ledger ledger){
-        Ledger ledger1 = service.saveLedger(ledger);
-        return ResponseEntity.ok(ledger1);
+        Ledger responseLedger = service.saveLedger(ledger);
+        return ResponseEntity.ok(responseLedger);
     }
     @GetMapping("/all")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Ledger> fetchAllLedgers(){
         return service.findAllLedgers();
+    }
+
+    @PostMapping(value = "/transection/depo/{ledgerId}")
+    public Transection addDeposit(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
+        return service.addDeposit(ledgerId,transection);
+    }
+    @PostMapping(value = "/transection/width/{ledgerId}")
+    public Transection addWithdrawal(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
+        return service.addWithdrawal(ledgerId,transection);
+    }
+
+    @GetMapping(value = "/transection/{ledgerId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<Transection> getTransectionsForLedger(@PathVariable("ledgerId") Long ledgerId){
+        return service.findTransectionForLedger(ledgerId);
     }
 
 

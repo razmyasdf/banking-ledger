@@ -11,8 +11,9 @@ public interface LedgerService {
 
     Ledger saveLedger(Ledger ledger);
     List<Ledger> findAllLedgers();
-    Transection addDeposit(Ledger ledger, Transection transection);
-    Transection addWithdrawal(Ledger ledger, Transection transection);
+    Transection addDeposit(Long ledgerId, Transection transection);
+    Transection addWithdrawal(Long ledgerId, Transection transection);
     List<Ledger> findByCustomerId(Long customerId);
+    List<Transection> findTransectionForLedger(Long ledgerId);
 
 }
