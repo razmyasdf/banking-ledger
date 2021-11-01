@@ -38,10 +38,12 @@ public class LedgerController {
     }
 
     @PostMapping(value = "/transection/depo/{ledgerId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Transection addDeposit(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
         return service.addDeposit(ledgerId,transection);
     }
     @PostMapping(value = "/transection/width/{ledgerId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Transection addWithdrawal(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
         return service.addWithdrawal(ledgerId,transection);
     }
