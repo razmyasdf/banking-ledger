@@ -17,9 +17,9 @@ public class Customer {
     private String lastName;
     @Column(unique = true)
     private String nic;
-    private Long userId;
+    private String userId;
 
-    public Customer(String firstName, String lastName, String nic, Long userId) {
+    public Customer(String firstName, String lastName, String nic, String userId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nic = nic;

@@ -17,11 +17,8 @@ public class DatabaseSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         List<Customer> customers = Arrays.asList(
-                new Customer("Razmy","Mahsoom","8691",1L),
-                new Customer("Raza","Mahsoom","8891",2L),
-                new Customer("Yahya","Razmy","1891",3L),
-                new Customer("Hubab","Razmy","2091",4L),
-                new Customer("Raziya","Nalim","9391",5L)
+                new Customer("Razmy","Mahsoom","8691","170dd251-47e3-46c2-ba77-61701adea431")
+
         );
 
         repository.saveAll(customers);
