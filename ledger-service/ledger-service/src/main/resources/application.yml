@@ -32,3 +32,12 @@ management:
     web:
       exposure:
         include: health,info
+
+# Keycloak related configurations
+
+keycloak:
+  realm: nimi-project
+  auth-server-url: http://localhost:8080/auth
+  resource: customer-service
+  public-client: true
+  autodetect-bearer-only: true

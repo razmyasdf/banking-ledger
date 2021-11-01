@@ -47,9 +47,9 @@ public class DatabaseSeeder implements CommandLineRunner {
 
 
         List<Ledger> ledgers = Arrays.asList(
-                new Ledger("Current Account",2L),
-                new Ledger("NRFC Account",2L),
-                new Ledger("Joint Account",2L)
+                new Ledger("Current Account",1L),
+                new Ledger("NRFC Account",1L),
+                new Ledger("Joint Account",1L)
         );
 
         repository.saveAll(ledgers);

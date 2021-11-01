@@ -5,8 +5,10 @@ import com.nimi.customerservice.exception.CustomerExistException;
 import com.nimi.customerservice.model.Ledger;
 import com.nimi.customerservice.repository.CustomerRepository;
 import com.nimi.customerservice.response.CustomerLedgerResponse;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +21,8 @@ public class CustomerServiceImpl implements CustomerService{
 
     private final   CustomerRepository customerRepository;
     @Autowired
-    private RestTemplate restTemplate;
+    private KeycloakRestTemplate restTemplate;
+
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
@@ -61,6 +64,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public CustomerLedgerResponse fetchCustomerWithLedger(Long customerId) {
+
         Customer customer = customerRepository.findById(customerId).get();
         ResponseEntity<Ledger[]> ledgers = restTemplate.getForEntity("http://LEDGER-SERVICE/api/v1/ledger/customer/"+customerId,Ledger[].class);
         CustomerLedgerResponse customerLedgerResponse = new CustomerLedgerResponse();

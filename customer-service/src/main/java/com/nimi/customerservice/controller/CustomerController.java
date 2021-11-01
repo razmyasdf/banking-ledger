@@ -3,11 +3,13 @@ package com.nimi.customerservice.controller;
 import com.nimi.customerservice.domain.Customer;
 import com.nimi.customerservice.response.CustomerLedgerResponse;
 import com.nimi.customerservice.service.CustomerService;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -16,6 +18,7 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ADMIN')")

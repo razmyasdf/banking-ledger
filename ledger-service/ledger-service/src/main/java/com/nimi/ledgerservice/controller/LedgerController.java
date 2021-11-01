@@ -6,6 +6,7 @@ import com.nimi.ledgerservice.repository.BankRepository;
 import com.nimi.ledgerservice.service.LedgerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class LedgerController {
 
 
     @GetMapping("/customer/{customerId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Ledger> getLedgersForCustomer(@PathVariable("customerId") Long customerId){
         return service.findByCustomerId(customerId);
     }

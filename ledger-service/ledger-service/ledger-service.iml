@@ -37,7 +37,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.5.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.12" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.5.6" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:4.0.3" level="project" />
@@ -56,7 +55,7 @@
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.5" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:txw2:2.3.5" level="project" />
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.5.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.12" level="project" />
@@ -96,7 +95,6 @@
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-commons:3.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-rsa:1.0.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.68" level="project" />
-    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.68" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-netflix-eureka-client:3.0.4" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.eureka:eureka-client:1.10.16" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.netflix-commons:netflix-eventbus:0.3.0" level="project" />
@@ -172,5 +170,21 @@
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-spring-boot-starter:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-spring-boot-2-adapter:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-spring-boot-adapter-core:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-core:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-common:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-authz-client:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:spring-boot-container-bundle:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-spring-security-adapter:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-spi:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.keycloak:keycloak-adapter-core:15.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.68" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.12" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.3" level="project" />
   </component>
 </module>
