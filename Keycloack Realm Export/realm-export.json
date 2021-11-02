@@ -727,7 +727,7 @@
     {
       "id": "0fb7d11b-a8e0-403b-b8de-9d86b88bbc3d",
       "clientId": "ledger-service",
-      "rootUrl": "http://localhost:8081",
+      "rootUrl": "",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
