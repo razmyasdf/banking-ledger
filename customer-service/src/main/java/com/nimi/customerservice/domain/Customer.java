@@ -17,6 +17,7 @@ public class Customer {
     private String lastName;
     @Column(unique = true)
     private String nic;
+    @Column(unique = true)
     private String userId;
 
     public Customer(String firstName, String lastName, String nic, String userId) {

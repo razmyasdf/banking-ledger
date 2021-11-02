@@ -19,7 +19,7 @@ public class Transection implements Serializable {
     private Long id;
     @Enumerated(EnumType.STRING)
     private TransectionType transectionType;
-    @OneToOne(cascade = CascadeType.ALL)
+    @Enumerated(EnumType.STRING)
     private Bank bank;
     private double amount;
     private LocalDateTime dateTime;

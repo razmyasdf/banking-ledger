@@ -23,11 +23,11 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         Ledger ledger = new Ledger();
         ledger.setName("Saving ledger");
-        ledger.setCustomerId(2L);
+        ledger.setCustomerId(1L);
 
         Transection t1 = new Transection();
         t1.setAmount(200.00);
-        t1.setBank(new Bank("AMANA","0016"));
+        t1.setBank(Bank.HNB);
         t1.setTransectionType(TransectionType.DEPOSIT);
         t1.setCurrency(Currency.LKR);
         t1.setLedger(ledger);
@@ -35,14 +35,23 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         Transection t2 = new Transection();
         t2.setAmount(10000);
-        t2.setBank(new Bank("HNB","0015"));
+        t2.setBank(Bank.HNB);
         t2.setTransectionType(TransectionType.DEPOSIT);
         t2.setCurrency(Currency.AUD);
         t2.setLedger(ledger);
         t2.setDateTime(LocalDateTime.now());
 
+        Transection t3 = new Transection();
+        t3.setAmount(100);
+        t3.setBank(Bank.HNB);
+        t3.setTransectionType(TransectionType.WITHDRAW);
+        t3.setCurrency(Currency.AUD);
+        t3.setLedger(ledger);
+        t3.setDateTime(LocalDateTime.now());
+
         ledger.addTransection(t1);
         ledger.addTransection(t2);
+        ledger.addTransection(t3);
         repository.save(ledger);
 
 

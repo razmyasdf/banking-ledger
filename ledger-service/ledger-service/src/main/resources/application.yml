@@ -38,6 +38,6 @@ management:
 keycloak:
   realm: nimi-project
   auth-server-url: http://localhost:8080/auth
-  resource: customer-service
+  resource: ledger-service
   public-client: true
   autodetect-bearer-only: true

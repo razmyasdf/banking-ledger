@@ -1,15 +1,15 @@
 package com.nimi.ledgerservice.controller;
 
-import com.nimi.ledgerservice.domain.Bank;
 import com.nimi.ledgerservice.domain.Ledger;
 import com.nimi.ledgerservice.domain.Transection;
-import com.nimi.ledgerservice.repository.BankRepository;
+import com.nimi.ledgerservice.domain.TransectionType;
 import com.nimi.ledgerservice.service.LedgerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -42,6 +42,7 @@ public class LedgerController {
     public Transection addDeposit(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
         return service.addDeposit(ledgerId,transection);
     }
+
     @PostMapping(value = "/transection/width/{ledgerId}")
     @PreAuthorize("hasRole('ADMIN')")
     public Transection addWithdrawal(@PathVariable("ledgerId") Long ledgerId,@RequestBody Transection transection){
@@ -54,6 +55,14 @@ public class LedgerController {
         return service.findTransectionForLedger(ledgerId);
     }
 
+    @GetMapping("/byType/{type}")
+    @PreAuthorize("hasRole('CUSTOMER')")
+    public List<Transection> fechTransectionByType(@PathVariable("type") TransectionType type){
+        return service.findTransectionByType(type);
+    }
 
-
+    @GetMapping("/byLedger/{ledgerId}")
+    public List<Transection> fetchTransectionForLedger(@PathVariable("ledgerId") Long ledgerId){
+        return service.fetchTransectionForLedger(ledgerId);
+    }
 }
