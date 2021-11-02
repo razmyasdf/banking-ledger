@@ -7,6 +7,7 @@ import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -53,5 +54,16 @@ public class CustomerController {
     @PreAuthorize("hasAnyRole('ADMIN','CUSTOMER')")
     public CustomerLedgerResponse getLedgerForCustomer(@PathVariable("customerId") Long customerId){
         return customerService.fetchCustomerWithLedger(customerId);
+    }
+
+    @GetMapping("/profile")
+    @PreAuthorize("hasRole('CUSTOMER')")
+    public Customer getCustomerProfile(Principal principal){
+        if(principal==null){
+            throw new RuntimeException("Not Authenticated");
+        }
+        String userId = principal.getName();
+        return customerService.fetchCustomerProfile(userId);
+
     }
 }

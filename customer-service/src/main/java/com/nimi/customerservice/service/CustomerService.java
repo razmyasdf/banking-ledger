@@ -13,4 +13,5 @@ public interface CustomerService {
     Customer fetchCustomerByNic(String nic);
     List<Customer> fetchAllCustomer();
     CustomerLedgerResponse fetchCustomerWithLedger(Long id);
+    Customer fetchCustomerProfile(String userId);
 }

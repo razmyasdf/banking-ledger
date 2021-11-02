@@ -73,4 +73,9 @@ public class CustomerServiceImpl implements CustomerService{
         customerLedgerResponse.setLedgers(ledgers1);
         return customerLedgerResponse;
     }
+
+    @Override
+    public Customer fetchCustomerProfile(String userId) {
+        return customerRepository.findByUserId(userId);
+    }
 }
